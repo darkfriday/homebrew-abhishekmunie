@@ -1,13 +1,13 @@
-# Documentation: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Formula-Cookbook.md
-#                http://www.rubydoc.info/github/Homebrew/homebrew/master/Formula
+# Documentation: https://docs.brew.sh/Formula-Cookbook
+#                https://rubydoc.brew.sh/Formula
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 
 class SoftetherVpnClient < Formula
   desc "SoftEther VPN Client"
   homepage "https://www.softether.org"
-  url "http://www.softether-download.com/files/softether/v4.21-9613-beta-2016.04.24-tree/Mac_OS_X/SoftEther_VPN_Client/64bit_-_Intel_x64_or_AMD64/softether-vpnclient-v4.21-9613-beta-2016.04.24-macos-x64-64bit.tar.gz"
-  version "v4.21-9613-beta"
-  sha256 "471a307d21fd8c60dcc6109f69c6ca3db95c8a0af64136ee1c3703ded42243d2"
+  url "http://www.softether-download.com/files/softether/v4.36-9754-beta-2021.06.07-tree/Mac_OS_X/SoftEther_VPN_Client/64bit_-_Intel_x64_or_AMD64/softether-vpnclient-v4.36-9754-beta-2021.06.07-macos-x64-64bit.tar.gz"
+  sha256 "481a75cd3ff31a84866ff6eedc3470aa7a00fb8784cfe55be7ef35113e11207b"
+  version "v4.36-9754-beta"
 
   depends_on "cmake" => :build
   depends_on "openssl"
@@ -25,7 +25,7 @@ class SoftetherVpnClient < Formula
 
   plist_options :startup => true, :manual => "sevpnclient start"
 
-  def plist; <<-EOS.undent
+  def plist; <<-EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -48,9 +48,8 @@ class SoftetherVpnClient < Formula
     EOS
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<-EOS
     Although vpnclient can run without root, you must be root to manage VPN NICs.
-
     The launchdaemon is set to start.
     EOS
   end
